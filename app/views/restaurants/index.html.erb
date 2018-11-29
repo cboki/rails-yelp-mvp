@@ -1,4 +1,10 @@
-<h1>All our restaurants</h1>
-<% @restaurant.each do |restaurant| %>
-<h3><%= restaurant.name %></h3>
-<% end %>
+<div class="container">
+  <h1 class="text-center">All our restaurants</h1>
+  <%= link_to 'Add a new restaurant', new_restaurant_path, class: 'btn btn-success' %>
+  <% @restaurants.each do |restaurant| %>
+    <%= link_to restaurant_path(restaurant) do %>
+      <h3><%= restaurant.name %></h3>
+    <% end %>
+    <p><%= restaurant.category.capitalize %> - <%= restaurant.address %></p>
+  <% end %>
+</div>
